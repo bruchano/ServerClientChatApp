@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Pie.Views.RegisterView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pie.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="800" d:DesignWidth="250" FontFamily="Poplar Std" FontSize="24" FontWeight="Bold" Foreground="White" Background="Black">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Register" VerticalAlignment="Center" FontSize="40" Margin="0, 60, 0, 0" Foreground="White" Background="Black"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical">
+            <TextBox x:Name="tbEmail" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding TbEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" VerticalAlignment="Top" Margin="0, 0, 0, 30"/>
+            <TextBox x:Name="tbUsername" HorizontalAlignment="Center" Height="23" TextWrapping="Wrap" Text="{Binding TbUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="120" VerticalAlignment="Top" Margin="0, 0, 0, 30">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="GotFocus">
+                        <i:InvokeCommandAction Command="{Binding UsernameGotFocusCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <PasswordBox x:Name="pbPassword" HorizontalAlignment="Center" Height="23" Password="" Width="120" VerticalAlignment="Top" Margin="0, 0, 0, 30"/>
+            <PasswordBox x:Name="pbConfirmPassword" HorizontalAlignment="Center" Height="23" Password=""  Width="120" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <Button x:Name="btnRegister" Style="{StaticResource DefaultButton}" Margin="0, 0, 0, 30" Content="Register" Background="Black" Foreground="White"/>
+            <Button x:Name="btnRedirectLogin" Style="{StaticResource DefaultButton}" Content="Go Login" Background="Black" Foreground="White" Command="{Binding viewCommands.ShowLoginViewCommand}"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<Application x:Class="Pie.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Pie"
+             
+             xmlns:viewmodels="clr-namespace:Pie.ViewModels"
+             xmlns:views="clr-namespace:Pie.Views">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            
+            <ResourceDictionary.MergedDictionaries>
+
+                <ResourceDictionary Source="Styles/ButtonDictionary.xaml"/>
+                <ResourceDictionary Source="Styles/MenuRadioButtonDictionary.xaml"/>
+                <ResourceDictionary Source="Styles/ChatGroupRadioButtonDictionary.xaml"/>
+
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginView LoginCommand="{Binding LoginCommand}" PasswordGotFocusCommand="{Binding PasswordGotFocusCommand}"/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
+                <views:RegisterView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:MenuViewModel}">
+                <views:MenuView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:TestViewModel}">
+                <views:TestView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:GuestPanelViewModel}">
+                <views:GuestPanelView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:UserPanelViewModel}">
+                <views:UserPanelView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:FriendsPanelViewModel}">
+                <views:FriendsPanelView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodels:ChatsPanelViewModel}">
+                <views:ChatsPanelView/>
+            </DataTemplate>
+
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+
+</Application>
